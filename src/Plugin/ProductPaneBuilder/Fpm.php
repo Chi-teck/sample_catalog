@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\sample_catalog\Plugin\ProductPaneBuilder;
 
+use Drupal\Component\Utility\Unicode;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\sample_catalog\Attribute\ProductPaneBuilder;
 use hollodotme\FastCGI\Client;
@@ -68,6 +69,9 @@ final class Fpm extends AbstractPaneBuilder {
       // @see sample_catalog/pane-builder.php
       $file = \realpath(__DIR__ . '/../../../pane-builder.php');
       $request = new PostRequest($file, $content);
+      // The default server name (localhost) might not be in
+      // 'trusted_host_patterns' defined in settings.php.
+      $request->setServerName(self::getServerName());
       try {
         $socket_ids[] = $client->sendAsyncRequest($connection, $request);
       }
@@ -80,7 +84,9 @@ final class Fpm extends AbstractPaneBuilder {
     foreach ($client->readResponses(100_000, ...$socket_ids) as $response) {
       $content = @\unserialize($response->getBody());
       if ($content === FALSE) {
-        return self::buildError();
+        return self::buildError(
+          \strip_tags(Unicode::truncate($response->getBody(), 1_000))
+        );
       }
       $build[] = $content;
     }
@@ -88,6 +94,13 @@ final class Fpm extends AbstractPaneBuilder {
       return self::buildError('Content is not delivered in time');
     }
     return $build;
+  }
+
+  /**
+   * {@selfdoc}
+   */
+  private static function getServerName(): string {
+    return \Drupal::request()->getHost();
   }
 
 }
