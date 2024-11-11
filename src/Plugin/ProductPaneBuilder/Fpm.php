@@ -31,7 +31,7 @@ final class Fpm extends AbstractPaneBuilder {
   public function buildMultiple(array $products): array {
 
     if (empty($this->configuration['server_address'])) {
-      throw new \InvalidArgumentException('FPM Builder requires server address to be configured');
+      return self::buildError('FPM Builder requires server address to be configured');
     }
 
     $parsed_url = \parse_url($this->configuration['server_address']);
@@ -72,7 +72,7 @@ final class Fpm extends AbstractPaneBuilder {
         $socket_ids[] = $client->sendAsyncRequest($connection, $request);
       }
       catch (ConnectException $exception) {
-        return self::buildError('FPM error: ' . $exception->getMessage());
+        return self::buildError($exception->getMessage());
       }
     }
 
@@ -85,7 +85,7 @@ final class Fpm extends AbstractPaneBuilder {
       $build[] = $content;
     }
     if (\count($build) !== \count($products)) {
-      return self::buildError('FPM error: Content is not delivered in time');
+      return self::buildError('Content is not delivered in time');
     }
     return $build;
   }
