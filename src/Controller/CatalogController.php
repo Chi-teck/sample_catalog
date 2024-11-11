@@ -75,7 +75,6 @@ final readonly class CatalogController implements ContainerInjectionInterface {
     ];
 
     $time = $finish - $start;
-    $time = \round(1_000 * ($finish - $start), 3);
     $summary_content = new FM(
       'Build time: <time datetime="@datetime">@time ms</time>',
       ['@time' => \number_format(1_000 * $time, 3, thousands_separator: ' '), '@datetime' => \round($time, 6) . 'S'],
