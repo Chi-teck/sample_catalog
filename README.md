@@ -37,7 +37,7 @@ No options.
 The FPM plugin relies on the [Fast CGI Client](https://github.com/hollodotme/fast-cgi-client)
 and allows you to build panes in background workers without requiring any extra extensions.
 
-To get the most out of this plugin, make sure you configure the PHP-FPM pool with
+To get the most out of this plugin, make sure the corresponding PHP-FPM pool is configured with
 a sufficient number of workers.
 
 #### Configuration
