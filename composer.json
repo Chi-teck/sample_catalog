@@ -1,5 +1,5 @@
 {
-    "name": "drupal/sample_catalog",
+    "name": "chi-teck/sample_catalog",
     "type": "drupal-module",
     "description": "A sample module to proof concept of parallel rendering content in Drupal.",
     "keywords": ["Drupal"],
