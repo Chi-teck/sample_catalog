@@ -1,0 +1,5 @@
+name: Sample Catalog
+description: 'A sample module to proof concept of parallel content building in Drupal.'
+package: Development
+core_version_requirement: ^11.0
+type: module

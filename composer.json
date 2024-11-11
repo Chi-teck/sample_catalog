@@ -1,0 +1,13 @@
+{
+    "name": "drupal/sample_catalog",
+    "type": "drupal-module",
+    "description": "A sample module to proof concept of parallel rendering content in Drupal.",
+    "keywords": ["Drupal"],
+    "license": "GPL-2.0+",
+    "require": {
+        "php": ">=8.3",
+        "drupal/core": "^11.0",
+        "hollodotme/fast-cgi-client": "^3.1",
+        "symfony/process": "^7.1"
+    }
+}

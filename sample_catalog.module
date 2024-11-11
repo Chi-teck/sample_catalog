@@ -1,0 +1,32 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ * Provides a product entity type.
+ */
+
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements hook_theme().
+ */
+function sample_catalog_theme(): array {
+  return [
+    'sample_catalog_product' => ['render element' => 'elements'],
+  ];
+}
+
+/**
+ * Prepares variables for product templates.
+ *
+ * Default template: sample-catalog-product.html.twig.
+ */
+function template_preprocess_sample_catalog_product(array &$variables): void {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+

@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Sample Catalog module.
+ */
+use Drupal\sample_catalog\Entity\Product;
+
+/**
+ * Implements hook_install().
+ */
+function sample_catalog_install(): void {
+  $product_storage = \Drupal::entityTypeManager()->getStorage(Product::ID);
+  for ($i = 1; $i <= 100; $i++) {
+    $product = $product_storage->create();
+    $product->get('label')->generateSampleItems();
+    $product->get('description')->generateSampleItems();
+    $product_storage->save($product);
+  }
+}

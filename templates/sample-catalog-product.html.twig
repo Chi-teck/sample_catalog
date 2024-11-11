@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a product entity.
+ *
+ * @see template_preprocess_sample_catalog_product()
+ */
+#}
+<article class="sc-product">
+  <h3 class="sc-product__label">{{ content.label|without('#theme') }}</h3>
+  <div class="sc-product__description">{{ content.description|without('#theme') }}</div>
+  <div class="sc-product__started">{{ content.started }}</div>
+  <div class="sc-product__finished">{{ content.finished }}</div>
+  <div class="sc-product__time">{{ content.time }}</div>
+</article>

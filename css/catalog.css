@@ -1,0 +1,40 @@
+.sc-summary {
+  margin-bottom: 1rem;
+}
+
+.sc-summary .placeholder {
+  font-weight: 600;
+  font-style: normal;
+}
+
+.sc-catalog {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.sc-product {
+  box-shadow: 1px 1px 5px #ccc;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 90%;
+}
+
+.sc-product__label {
+  line-height: 1.25;
+  font-size: 110%;
+  margin: 0;
+  flex-basis: 2rem;
+  min-height: 1rem;
+}
+
+.sc-product__description {
+  flex-grow: 1;
+  line-height: 1.25;
+}
+
+.sc-catalog__error {
+  grid-column: 1 / 5;
+  color: red;
+}

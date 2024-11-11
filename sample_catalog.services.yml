@@ -1,0 +1,4 @@
+services:
+  plugin.manager.product_pane_builder:
+    class: Drupal\sample_catalog\ProductPaneBuilderPluginManager
+    parent: default_plugin_manager

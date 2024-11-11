@@ -1,0 +1,16 @@
+# Schema for the configuration files of the Sample Catalog module.
+sample_catalog.settings:
+  type: config_object
+  label: 'Sample Catalog settings'
+  mapping:
+    pane_count:
+      type: integer
+      label: 'Pane Count'
+      constraints:
+        Range: {min: 0}
+
+    build_cost:
+      type: integer
+      label: 'Pane Count'
+      constraints:
+        Range: {min: 0}

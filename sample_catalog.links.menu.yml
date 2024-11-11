@@ -1,0 +1,5 @@
+sample_catalog.settings:
+  title: Sample Catalog
+  description: Configure Sample Catalog
+  parent: system.admin_config_development
+  route_name: sample_catalog.settings

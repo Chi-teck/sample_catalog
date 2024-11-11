@@ -1,0 +1,6 @@
+# An example configuration for Road Runner.
+version: '3'
+server:
+  command: "php psr-worker.php /var/www/d11/web"
+http:
+  address: 0.0.0.0:8080

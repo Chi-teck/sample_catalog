@@ -1,0 +1,30 @@
+sample_catalog:
+  path: '/catalog/{builder_type}'
+  defaults:
+    _title: 'Catalog'
+    _controller: 'Drupal\sample_catalog\Controller\CatalogController'
+    _title_callback: 'Drupal\sample_catalog\Controller\CatalogController::title'
+    builder_type: 'simple'
+  requirements:
+    _access: 'TRUE'
+
+sample_catalog.settings:
+  path: '/admin/config/development/sample-catalog'
+  defaults:
+    _title: 'Sample Catalog'
+    _form: 'Drupal\sample_catalog\Form\SettingsForm'
+  requirements:
+    _permission: 'administer site configuration'
+
+# @see \Drupal\sample_catalog\Plugin\ProductPaneBuilder\Http
+sample_catalog.product_builder:
+  path: '/sample-catalog/product/{sample_catalog_product}/pane'
+  defaults:
+    _title: 'Product Pane'
+    _controller: '\Drupal\sample_catalog\Controller\PaneBuilderController'
+  options:
+    parameters:
+      sample_catalog_product:
+        type: entity:sample_catalog_product
+  requirements:
+    _access: 'TRUE'
