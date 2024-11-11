@@ -4,6 +4,8 @@
 
 The **Sample Catalog** module provides a sandbox environment for testing and analyzing the performance of building content in Drupal. It offers configurable stress-testing settings and a sample catalog with product panes to evaluate the impact of various optimization techniques. This module is designed for developers who want to understand and experiment with Drupal's performance under different conditions.
 
+<img src="./assets/screenshot.jpg" alt="Catalog screenshot">
+
 ## Usage
 
 - **Configuration page**: `/admin/config/development/sample-catalog`
