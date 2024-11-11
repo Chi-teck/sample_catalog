@@ -32,7 +32,7 @@ final class ProductPaneBuilderPluginManager extends DefaultPluginManager {
     if ($configuration === []) {
       // Use Drupal settings as there is no UI for plugin configuration.
       $settings = Settings::get('sample_catalog');
-      $current_base_uri = (new Url('<front>', options: ['absolute' => TRUE]))->toString();
+      $current_base_uri = (new Url('<front>', options: ['absolute' => TRUE]))->toString() . '/sample-catalog/';
       $configuration = match ($plugin_id) {
         'fpm' => ['server_address' => $settings['fpm']['server_address'] ?? ''],
         'http' => ['base_uri' => $settings['http']['base_uri'] ?? $current_base_uri],
